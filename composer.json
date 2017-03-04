@@ -1,7 +1,7 @@
 {
 	"name"			: "ipub/websockets-message",
 	"type"			: "library",
-	"description"	: "Extension for implementing classic websocket messages with ipub/websockets server with client side",
+	"description"	: "Extension for implementing classic websocket messages with ipub/websockets websocket server with client side",
 	"keywords"		: ["nette", "websockets", "message", "ipub", "ipublikuj", "framework", "tools"],
 	"homepage"		: "https://github.com/iPublikuj/websockets-message",
 	"license"		: ["GPL-2.0", "GPL-3.0"],
@@ -23,7 +23,7 @@
 		"ipub"	: {
 			"configuration" : {
 				"extensions" : {
-					"websocketsMessage" : "IPub\\WebSocketsMessage\\DI\\WebSocketsMessageExtension"
+					"webSocketsMessage" : "IPub\\WebSocketsMessage\\DI\\WebSocketsMessageExtension"
 				}
 			}
 		}
