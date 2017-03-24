@@ -5,7 +5,7 @@
  * @copyright      More in license.md
  * @license        http://www.ipublikuj.eu
  * @author         Adam Kadlec http://www.ipublikuj.eu
- * @package        iPublikuj:WebSocketMessage!
+ * @package        iPublikuj:WebSocketsMessage!
  * @subpackage     Application
  * @since          1.0.0
  *
@@ -16,7 +16,6 @@ declare(strict_types = 1);
 
 namespace IPub\WebSocketsMessage\Application;
 
-use Nette\Http\UrlScript;
 use Nette\Utils;
 
 use IPub;
@@ -27,7 +26,7 @@ use IPub\WebSockets\Http as WebSocketsHttp;
 /**
  * Classic WebSockets message application
  *
- * @package        iPublikuj:WebSocketMessage!
+ * @package        iPublikuj:WebSocketsMessage!
  * @subpackage     Application
  *
  * @author         Adam Kadlec <adam.kadlec@ipublikuj.eu>
@@ -37,8 +36,10 @@ final class Application extends WebSocketsApplication\Application
 	/**
 	 * {@inheritdoc}
 	 */
-	public function onMessage(WebSocketsEntities\Clients\IClient $from, WebSocketsHttp\IRequest $httpRequest, string $message)
+	public function handleMessage(WebSocketsEntities\Clients\IClient $from, WebSocketsHttp\IRequest $httpRequest, string $message)
 	{
+		parent::handleMessage($from, $httpRequest, $message);
+
 		$url = $httpRequest->getUrl();
 
 		try {
@@ -56,11 +57,15 @@ final class Application extends WebSocketsApplication\Application
 			// Nothing to do here
 		}
 
-		$url->setQueryParameter('action', 'message');
+		$parsedAction = $url->getQueryParameter(WebSocketsApplication\Controller\Controller::ACTION_KEY, WebSocketsApplication\Controller\Controller::DEFAULT_ACTION);
+
+		if ($parsedAction === WebSocketsApplication\Controller\Controller::DEFAULT_ACTION) {
+			$url->setQueryParameter(WebSocketsApplication\Controller\Controller::ACTION_KEY, 'message');
+		}
 
 		$httpRequest->setUrl($url);
 
-		$this->printer->success(sprintf('New message was recieved from %s', $from->getId()));
+		$this->logger->debug(sprintf('New message was recieved from %s', $from->getId()));
 
 		$response = $this->processMessage($httpRequest, [
 			'client' => $from,

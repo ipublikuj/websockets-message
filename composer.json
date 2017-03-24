@@ -35,9 +35,7 @@
 		"nette/di"		: "~2.4",
 		"nette/utils"	: "~2.4",
 
-		"ipub/websockets"	: "~1.0",
-
-		"pds/skeleton"	: "^1.0",
+		"ipub/websockets": "~1.0.5",
 
 		"psr/log"	: "~1.0"
 	},
@@ -49,7 +47,9 @@
 		"nette/safe-stream"		: "~2.3",
 		"nette/tester"			: "@dev",
 
-		"tracy/tracy"	: "@dev"
+		"tracy/tracy"	: "@dev",
+
+		"pds/skeleton"	: "^1.0"
 	},
 
 	"autoload": {

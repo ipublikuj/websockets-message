@@ -4,7 +4,7 @@
  * @copyright      More in license.md
  * @license        http://www.ipublikuj.eu
  * @author         Adam Kadlec <adam.kadlec@fastybird.com>
- * @package        iPublikuj:WebSocketMessage!
+ * @package        iPublikuj:WebSocketsMessage!
  * @subpackage     java-script
  * @since          1.0.0
  *
@@ -12,10 +12,10 @@
  */
 
 /**
- * Client-side script for iPublikuj:WebSocketMessage!
+ * Client-side script for iPublikuj:WebSocketsMessage!
  *
  * @author        Adam Kadlec <adam.kadlec@fastybird.com>
- * @package       iPublikuj:WebSocketMessage!
+ * @package       iPublikuj:WebSocketsMessage!
  * @version       1.0.0
  *
  * @param {jQuery} $ (version > 1.7)

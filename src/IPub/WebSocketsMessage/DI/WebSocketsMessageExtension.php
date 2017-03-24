@@ -5,7 +5,7 @@
  * @copyright      More in license.md
  * @license        http://www.ipublikuj.eu
  * @author         Adam Kadlec http://www.ipublikuj.eu
- * @package        iPublikuj:WebSocketMessage!
+ * @package        iPublikuj:WebSocketsMessage!
  * @subpackage     DI
  * @since          1.0.0
  *
@@ -26,7 +26,7 @@ use IPub\WebSocketsMessage\Application;
 /**
  * WebSockets WAMP extension container
  *
- * @package        iPublikuj:WebSocketMessage!
+ * @package        iPublikuj:WebSocketsMessage!
  * @subpackage     DI
  *
  * @author         Adam Kadlec <adam.kadlec@ipublikuj.eu>
@@ -57,7 +57,7 @@ final class WebSocketsMessageExtension extends DI\CompilerExtension
 	 *
 	 * @return void
 	 */
-	public static function register(Nette\Configurator $config, string $extensionName = 'websocketsMessage')
+	public static function register(Nette\Configurator $config, string $extensionName = 'webSocketsMessage')
 	{
 		$config->onCompile[] = function (Nette\Configurator $config, DI\Compiler $compiler) use ($extensionName) {
 			$compiler->addExtension($extensionName, new WebSocketsMessageExtension());
